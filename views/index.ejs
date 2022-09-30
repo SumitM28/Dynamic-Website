@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- head -->
+  <%- include('./partials/head.ejs');%>
+    <title>Portfolio -Sumit</title>
+</head>
+<link rel="stylesheet" href="/css/style.css">
+
+<body>
+
+  <!-- Navbar -->
+  <%- include('./partials/navbar.ejs');%>
+
+
+
+    <!-- slider -->
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <% slider.slider.forEach(sliderItem=>{ %>
+          <div class="carousel-item <%=sliderItem.class%>">
+            <img src="<%=sliderItem.sliderImage%>" class="d-block w-100" id="slide-image" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>
+                <%=sliderItem.sliderLable%>
+              </h5>
+              <p>
+                <%=sliderItem.sliderPlaceholder%>
+              </p>
+            </div>
+          </div>
+          <% }) %>
+
+      </div>
+
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+    <!-- Services -->
+    <section id="services" class="py-3">
+      <div class="container">
+        <h1 class="text-center text-secondary">Our services</h1>
+        <div class="row mt-5">
+
+          <% services.forEach( servicesItem=>{ %>
+
+            <div class="col-md-4 mt-2">
+
+              <div class="card">
+
+                <div class="card-body">
+
+                  <div class="container text-center">
+                    <i class="<%= servicesItem.icon%> services__icon"></i>
+                    <h5 class="card-title">
+                      <%= servicesItem.title%>
+                        </h3>
+                        <p>
+                          <%= servicesItem.subtitle%>
+                        </p>
+                        <a href="<%= servicesItem.checkLink %>">Check</a>
+                        <a href="<%= servicesItem.supportLink %>" class="ml-3">Support</a>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <% }) %>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- About me -->
+    <section id="about" class="about my-5">
+      <div class="container">
+        <h1 class="text-center text-secondary">About Me</h1>
+        <div class="about_container">
+          <div class="about-img">
+            <img src="<%= about.aboutImage%>" alt="">
+          </div>
+          <div class="about-details">
+            <p><%= about.aboutDetails%></p>
+          </div>
+        </div>
+    </section>
+
+    <!-- Contact us -->
+    <section id="contact" class="contact-us mb-4 contact">
+      <div class="container">
+        <h1 class="text-center text-secondary">Contact us</h1>
+        <div class="row mt-5">
+          <form action="/process-contact-form" method="post">
+            <div class="mb-3">
+              <label for="formName" class="form-label">Your name</label>
+              <input name="name" type="text" class="form-control" id="formName" aria-describedby="emailHelp" placeholder="Enter your name..">
+              
+            </div>
+            <div class="">
+              <label for="formEmail" class="form-label">Email address</label>
+              <input name="email" type="email" class="form-control" id="formEmail" aria-describedby="emailHelp" placeholder="Enter your Email..">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="formNumber" class="form-label">Mobile number</label>
+              <input name="number" type="number" class="form-control" id="formNumber">
+            </div>
+            <!-- <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> -->
+
+            <div class="form-floating mb-3">
+              <textarea name="query" style="height: 250px;" class="form-control" placeholder="Tell me about your query" id="floatingTextarea"></textarea>
+              <label for="floatingTextarea">Enter your query here..</label>
+            </div>
+
+            <div class="container text-center my-3">
+
+              <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+  
+
+    <%- include('./partials/script.ejs');%>
+</body>
+
+</html>

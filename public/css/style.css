@@ -1,0 +1,33 @@
+body{
+    list-style: none;
+    text-decoration: none;
+}
+
+#slide-image{
+    height: 700px !important;
+    object-fit: cover;
+}
+.services__icon{
+    font-size: 100px;
+    color: rgb(8, 8, 20);
+}
+
+.contact{
+    /* background: #6c757d; */
+    color: black;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+.about_container{
+    display: flex;
+    gap: 5rem;
+}
+.about-img img{
+    width: 200px;
+    border-radius:5px ;
+}
+.about-details{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
